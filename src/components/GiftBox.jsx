@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Gift, Lock, Unlock, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Gift, Lock, Sparkles, Unlock } from 'lucide-react';
+import { useState } from 'react';
 
 export default function GiftBox({ onOpenComplete }) {
   const [isOpening, setIsOpening] = useState(false);
@@ -41,7 +41,7 @@ export default function GiftBox({ onOpenComplete }) {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-card text-xs text-amber-300 font-medium border border-amber-400/30">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Mystery Box</span>
+            <span>Special Gift</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-serif-custom font-bold text-white tracking-tight">
@@ -59,9 +59,9 @@ export default function GiftBox({ onOpenComplete }) {
             animate={
               isOpening
                 ? {
-                    rotate: [0, -5, 5, -8, 8, -12, 12, 0],
-                    scale: [1, 1.05, 1.1, 1.15, 1.2]
-                  }
+                  rotate: [0, -5, 5, -8, 8, -12, 12, 0],
+                  scale: [1, 1.05, 1.1, 1.15, 1.2]
+                }
                 : { y: [0, -10, 0] }
             }
             transition={

@@ -1,18 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Sparkles, ArrowRight } from 'lucide-react';
-import { birthdayData } from '../config/birthdayData';
 
-export default function PersonalMessage({ onScrollNext }) {
-  const { title, paragraphs } = birthdayData.personalMessage;
+export default function PersonalMessage({ data, onScrollNext }) {
+  const { title, paragraphs } = data?.personalMessage || { title: '', paragraphs: [] };
 
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center p-6 py-20 overflow-hidden">
-      {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl h-96 bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-2xl w-full z-10 space-y-10 text-center">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +27,6 @@ export default function PersonalMessage({ onScrollNext }) {
           </h2>
         </motion.div>
 
-        {/* Emotional Message Glass Container */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.96 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -38,7 +34,6 @@ export default function PersonalMessage({ onScrollNext }) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="glass-card p-8 sm:p-12 rounded-3xl space-y-6 text-left relative overflow-hidden border border-white/10 shadow-2xl"
         >
-          {/* Decorative Corner Shimmer */}
           <div className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full blur-xl pointer-events-none" />
 
           {paragraphs.map((paragraph, index) => (
@@ -64,7 +59,6 @@ export default function PersonalMessage({ onScrollNext }) {
           </div>
         </motion.div>
 
-        {/* Button: There's More → */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

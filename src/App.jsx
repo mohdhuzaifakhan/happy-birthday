@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { getActiveBirthdayData, peopleData } from './config/birthdayData';
 
 // Components
 import IntroScreen from './components/IntroScreen';
 import MusicController from './components/MusicController';
 import ParticleBackground from './components/ParticleBackground';
+import PersonSelector from './components/PersonSelector';
 import BirthdayHero from './components/BirthdayHero';
 import PersonalMessage from './components/PersonalMessage';
 import MemoryGallery from './components/MemoryGallery';
@@ -14,6 +16,7 @@ import GiftBox from './components/GiftBox';
 import FinalSection from './components/FinalSection';
 
 export default function App() {
+  const [activeData, setActiveData] = useState(() => getActiveBirthdayData());
   const [isStarted, setIsStarted] = useState(false);
   const [giftUnlocked, setGiftUnlocked] = useState(false);
 
@@ -24,6 +27,28 @@ export default function App() {
   const cakeRef = useRef(null);
   const giftRef = useRef(null);
   const finalRef = useRef(null);
+
+  // Sync with URL search params changes if any
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setActiveData(getActiveBirthdayData());
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  const handleSelectPerson = (personId) => {
+    if (peopleData[personId]) {
+      setActiveData(peopleData[personId]);
+      const url = new URL(window.location.href);
+      url.searchParams.set('person', personId);
+      window.history.pushState({}, '', url.toString());
+      // Reset state for clean preview
+      setIsStarted(false);
+      setGiftUnlocked(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const handleStart = () => {
     setIsStarted(true);
@@ -46,8 +71,14 @@ export default function App() {
       {/* Background Star & Particle Canvas */}
       <ParticleBackground />
 
+      {/* Person Selector & Quick Share Link Menu */}
+      <PersonSelector
+        currentPersonId={activeData.id}
+        onSelectPerson={handleSelectPerson}
+      />
+
       {/* Floating Audio Controller */}
-      <MusicController isStarted={isStarted} />
+      <MusicController isStarted={isStarted} data={activeData} />
 
       {/* 1. Opening Mystery Screen */}
       <AnimatePresence>
@@ -64,27 +95,27 @@ export default function App() {
         >
           {/* Section 2: Main Birthday Reveal */}
           <div ref={heroRef}>
-            <BirthdayHero onScrollNext={() => scrollToRef(messageRef)} />
+            <BirthdayHero data={activeData} onScrollNext={() => scrollToRef(messageRef)} />
           </div>
 
           {/* Section 3: Personal Message */}
           <div ref={messageRef}>
-            <PersonalMessage onScrollNext={() => scrollToRef(memoryRef)} />
+            <PersonalMessage data={activeData} onScrollNext={() => scrollToRef(memoryRef)} />
           </div>
 
           {/* Section 4: Our Memories */}
           <div ref={memoryRef}>
-            <MemoryGallery />
+            <MemoryGallery data={activeData} />
           </div>
 
           {/* Section 5: "Did You Know?" Interactive Section */}
           <div ref={factsRef}>
-            <FunFacts />
+            <FunFacts data={activeData} />
           </div>
 
           {/* Section 6: Interactive Birthday Cake */}
           <div ref={cakeRef}>
-            <BirthdayCake />
+            <BirthdayCake data={activeData} />
           </div>
 
           {/* Section 7: Hidden Surprise Gift */}
@@ -97,7 +128,7 @@ export default function App() {
 
           {/* Section 8 & 9: Final Emotional Message & Ending */}
           <div ref={finalRef}>
-            <FinalSection onReplay={handleReplay} />
+            <FinalSection data={activeData} onReplay={handleReplay} />
           </div>
         </motion.div>
       )}

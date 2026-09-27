@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HelpCircle, RotateCcw, Sparkles } from 'lucide-react';
-import { birthdayData } from '../config/birthdayData';
 
-export default function FunFacts() {
+export default function FunFacts({ data }) {
   const [flippedCards, setFlippedCards] = useState({});
+
+  const funFacts = data?.funFacts || [];
 
   const toggleFlip = (id) => {
     setFlippedCards((prev) => ({
@@ -15,10 +16,8 @@ export default function FunFacts() {
 
   return (
     <section className="relative py-20 px-4 sm:px-6 max-w-4xl mx-auto text-center overflow-hidden">
-      {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Header */}
       <div className="space-y-3 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,9 +50,8 @@ export default function FunFacts() {
         </motion.p>
       </div>
 
-      {/* Grid of 3D Flipping Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-        {birthdayData.funFacts.map((fact, index) => {
+        {funFacts.map((fact, index) => {
           const isFlipped = flippedCards[fact.id];
 
           return (
@@ -71,7 +69,6 @@ export default function FunFacts() {
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
                 className="w-full h-full relative transform-style-3d glass-card rounded-2xl border border-white/10 shadow-xl group-hover:border-pink-500/40"
               >
-                {/* Front Side */}
                 <div
                   className={`absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center space-y-3 backface-hidden transition-opacity ${
                     isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
@@ -88,7 +85,6 @@ export default function FunFacts() {
                   </span>
                 </div>
 
-                {/* Back Side (Flipped) */}
                 <div
                   className={`absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-purple-900/60 to-pink-900/60 backdrop-blur-xl border border-pink-400/40 shadow-2xl transform rotate-y-180 backface-hidden transition-opacity ${
                     isFlipped ? 'opacity-100' : 'opacity-0 pointer-events-none'

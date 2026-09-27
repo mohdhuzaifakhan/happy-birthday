@@ -2,16 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import FireworksCanvas from './FireworksCanvas';
-import { Heart, RotateCcw, Sparkles } from 'lucide-react';
-import { birthdayData } from '../config/birthdayData';
+import { Heart, RotateCcw } from 'lucide-react';
 
-export default function FinalSection({ onReplay }) {
+export default function FinalSection({ data, onReplay }) {
   const [showGrandEnding, setShowGrandEnding] = useState(false);
-  const { title, salutation, body, closing } = birthdayData.finalMessage;
-  const { subtitle1, subtitle2, fromText } = birthdayData.ending;
+
+  const { title, salutation, body, closing } = data?.finalMessage || { title: '', salutation: '', body: [], closing: '' };
+  const { subtitle1, subtitle2, fromText } = data?.ending || { subtitle1: '', subtitle2: '', fromText: '' };
 
   useEffect(() => {
-    // Continuous grand fireworks & confetti celebration
     setShowGrandEnding(true);
 
     const end = Date.now() + 5000;
@@ -37,18 +36,15 @@ export default function FinalSection({ onReplay }) {
         requestAnimationFrame(frame);
       }
     })();
-  }, []);
+  }, [data]);
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center p-6 py-24 text-center overflow-hidden bg-gradient-to-b from-[#070714] via-[#0E0C26] to-[#070714]">
-      {/* Grand Fireworks Display */}
       <FireworksCanvas active={showGrandEnding} duration={10000} />
 
-      {/* Starry Night Atmosphere Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-900/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-2xl w-full z-10 space-y-12">
-        {/* Header: For You ❤️ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +66,6 @@ export default function FinalSection({ onReplay }) {
           </p>
         </motion.div>
 
-        {/* Heartfelt Message Lines */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +92,6 @@ export default function FinalSection({ onReplay }) {
             ))}
           </div>
 
-          {/* Final Slow Line */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -111,7 +105,6 @@ export default function FinalSection({ onReplay }) {
           </motion.div>
         </motion.div>
 
-        {/* Final Surprise Banner & Sign-off */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,7 +124,6 @@ export default function FinalSection({ onReplay }) {
             </div>
           </div>
 
-          {/* Replay Button */}
           <motion.button
             onClick={onReplay}
             whileHover={{ scale: 1.05 }}

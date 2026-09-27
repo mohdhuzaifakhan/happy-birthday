@@ -4,10 +4,13 @@ import confetti from 'canvas-confetti';
 import FireworksCanvas from './FireworksCanvas';
 import { Flame, Sparkles } from 'lucide-react';
 
-export default function BirthdayCake() {
+export default function BirthdayCake({ data }) {
   const [candlesLit, setCandlesLit] = useState(true);
   const [showFireworks, setShowFireworks] = useState(false);
   const [wishBlown, setWishBlown] = useState(false);
+
+  const nickname = data?.nickname || "Bestie";
+  const birthdayDate = data?.birthdayDate || "17 Nov";
 
   const blowOutCandles = () => {
     if (!candlesLit) return;
@@ -16,7 +19,6 @@ export default function BirthdayCake() {
     setWishBlown(true);
     setShowFireworks(true);
 
-    // Confetti explosion
     confetti({
       particleCount: 150,
       spread: 90,
@@ -30,10 +32,8 @@ export default function BirthdayCake() {
 
   return (
     <section className="relative py-24 px-4 sm:px-6 max-w-3xl mx-auto text-center overflow-hidden">
-      {/* Background Fireworks Overlay */}
       <FireworksCanvas active={showFireworks} duration={6000} />
 
-      {/* Screen Darken transition on blow out */}
       <AnimatePresence>
         {!candlesLit && (
           <motion.div
@@ -47,7 +47,6 @@ export default function BirthdayCake() {
       </AnimatePresence>
 
       <div className="relative z-20 space-y-8">
-        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +61,6 @@ export default function BirthdayCake() {
           </p>
         </motion.div>
 
-        {/* Interactive Cake Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -70,14 +68,11 @@ export default function BirthdayCake() {
           onClick={blowOutCandles}
           className="relative max-w-xs mx-auto py-8 glass-card rounded-3xl p-6 border border-pink-500/20 shadow-2xl cursor-pointer group hover:border-pink-500/50 transition-all select-none"
         >
-          {/* Glowing Aura around cake */}
           <div className={`absolute inset-0 rounded-3xl transition-opacity duration-700 ${candlesLit ? 'bg-amber-500/10 blur-xl animate-pulse' : 'bg-pink-500/10 blur-xl'}`} />
 
-          {/* Candle Flames Row */}
           <div className="flex justify-center items-end gap-3 mb-2 relative z-10">
             {[0, 1, 2, 3, 4].map((index) => (
               <div key={index} className="flex flex-col items-center">
-                {/* Flame */}
                 <AnimatePresence mode="wait">
                   {candlesLit ? (
                     <motion.div
@@ -105,15 +100,12 @@ export default function BirthdayCake() {
                   )}
                 </AnimatePresence>
 
-                {/* Candle Stick */}
                 <div className="w-2.5 h-10 rounded-full bg-gradient-to-t from-pink-400 via-rose-300 to-amber-200 border border-white/20 shadow-sm" />
               </div>
             ))}
           </div>
 
-          {/* Cake Layers (CSS Illustrated Cake) */}
           <div className="space-y-1 relative z-10">
-            {/* Top Frosting Layer */}
             <div className="w-48 sm:w-56 h-10 mx-auto rounded-t-2xl bg-gradient-to-r from-pink-400 via-rose-300 to-pink-400 shadow-inner flex items-center justify-around border-t border-white/40">
               <span className="w-3 h-3 rounded-full bg-rose-500 inline-block shadow" />
               <span className="w-3 h-3 rounded-full bg-amber-300 inline-block shadow" />
@@ -121,14 +113,12 @@ export default function BirthdayCake() {
               <span className="w-3 h-3 rounded-full bg-pink-500 inline-block shadow" />
             </div>
 
-            {/* Middle Sponge Layer */}
             <div className="w-56 sm:w-64 h-12 mx-auto bg-gradient-to-r from-purple-900 via-pink-900 to-purple-900 border-y border-pink-500/30 flex items-center justify-center">
               <span className="text-xs font-serif-custom tracking-widest text-pink-200 uppercase font-semibold">
-                Bushra • 17 Nov
+                {nickname} • {birthdayDate}
               </span>
             </div>
 
-            {/* Bottom Base Layer */}
             <div className="w-64 sm:w-72 h-14 mx-auto rounded-b-2xl bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 border-t border-white/30 shadow-2xl flex items-center justify-around px-4">
               <Sparkles className="w-4 h-4 text-amber-300" />
               <Sparkles className="w-4 h-4 text-white" />
@@ -143,7 +133,6 @@ export default function BirthdayCake() {
           )}
         </motion.div>
 
-        {/* Revealed Funny/Warm After-wish Lines */}
         {wishBlown && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
