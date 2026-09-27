@@ -204,27 +204,26 @@ export const peopleData = {
   }
 };
 
-// Helper function to resolve person from URL parameter or fallback
+// Helper function to resolve person strictly by their configured 'id' property
 export function getActiveBirthdayData() {
-  if (typeof window === 'undefined') return peopleData.bushra;
+  if (typeof window === 'undefined') return null;
 
   const urlParams = new URLSearchParams(window.location.search);
   const personQuery = urlParams.get('person') || urlParams.get('name') || urlParams.get('id') || urlParams.get('to');
 
   if (personQuery) {
-    const key = personQuery.toLowerCase().trim();
-    if (peopleData[key]) {
-      return peopleData[key];
-    }
-    // Matching first name if full name passed
-    const matchedKey = Object.keys(peopleData).find(k =>
-      key.includes(k) || peopleData[k].friendName.toLowerCase().includes(key)
+    const query = personQuery.trim();
+
+    // STRICT MATCH ONLY against person.id
+    const matchedPerson = Object.values(peopleData).find(
+      (person) => person.id === query || person.id.toLowerCase() === query.toLowerCase()
     );
-    if (matchedKey) {
-      return peopleData[matchedKey];
+
+    if (matchedPerson) {
+      return matchedPerson;
     }
   }
 
-  // Default to bushra if no match
-  return peopleData.bushra;
+  // Strictly return null if ID does not match to protect privacy
+  return null;
 }

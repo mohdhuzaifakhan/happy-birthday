@@ -7,6 +7,7 @@ import IntroScreen from './components/IntroScreen';
 import MusicController from './components/MusicController';
 import ParticleBackground from './components/ParticleBackground';
 import PersonSelector from './components/PersonSelector';
+import RestrictedScreen from './components/RestrictedScreen';
 import BirthdayHero from './components/BirthdayHero';
 import PersonalMessage from './components/PersonalMessage';
 import MemoryGallery from './components/MemoryGallery';
@@ -38,10 +39,14 @@ export default function App() {
   }, []);
 
   const handleSelectPerson = (personId) => {
-    if (peopleData[personId]) {
-      setActiveData(peopleData[personId]);
+    const matchedPerson = Object.values(peopleData).find(
+      (p) => p.id === personId || p.id.toLowerCase() === personId.toLowerCase()
+    );
+
+    if (matchedPerson) {
+      setActiveData(matchedPerson);
       const url = new URL(window.location.href);
-      url.searchParams.set('person', personId);
+      url.searchParams.set('person', matchedPerson.id);
       window.history.pushState({}, '', url.toString());
       // Reset state for clean preview
       setIsStarted(false);
@@ -65,6 +70,16 @@ export default function App() {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // If no person key is passed or found in URL, show Restricted Access Screen to protect secrets
+  if (!activeData) {
+    return (
+      <div className="min-h-screen bg-[#070714] text-white font-sans-custom relative">
+        <ParticleBackground />
+        <RestrictedScreen onUnlockPerson={handleSelectPerson} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#070714] text-white selection:bg-pink-500 selection:text-white font-sans-custom relative">
