@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Heart } from 'lucide-react';
 
-export default function IntroScreen({ onEnter }) {
+export default function IntroScreen({ data, onEnter }) {
   const [step, setStep] = useState(0);
+
+  const personName = data?.nickname || data?.friendName;
+  const greetingText = personName ? `Hey ${personName}... 👀` : `Hey... 👀`;
 
   useEffect(() => {
     // Sequenced step transitions
-    const timer1 = setTimeout(() => setStep(1), 1200); // "Hey... 👀"
+    const timer1 = setTimeout(() => setStep(1), 1200); // "Hey [Name]... 👀"
     const timer2 = setTimeout(() => setStep(2), 3200); // "I made something for you."
     const timer3 = setTimeout(() => setStep(3), 5200); // "But before you see it..."
 
@@ -31,7 +34,7 @@ export default function IntroScreen({ onEnter }) {
       <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
       <div className="max-w-md w-full text-center space-y-8 z-10 relative">
-        {/* Step 0 & 1: Hey... 👀 */}
+        {/* Step 0 & 1: Hey [Name]... 👀 */}
         <AnimatePresence mode="wait">
           {step >= 1 && (
             <motion.div
@@ -41,7 +44,7 @@ export default function IntroScreen({ onEnter }) {
               transition={{ duration: 0.8 }}
               className="text-4xl sm:text-5xl font-serif-custom font-bold tracking-tight text-gradient-rose"
             >
-              Hey... 👀
+              {greetingText}
             </motion.div>
           )}
         </AnimatePresence>

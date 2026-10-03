@@ -39,11 +39,16 @@ export default function App() {
   }, []);
 
   const handleSelectPerson = (personId) => {
-    const matchedPerson = Object.values(peopleData).find(
-      (p) => p.id === personId || p.id.toLowerCase() === personId.toLowerCase()
+    const query = personId.trim().toLowerCase();
+    const matchedEntry = Object.entries(peopleData).find(([key, p]) =>
+      key.toLowerCase() === query ||
+      p.id.toLowerCase() === query ||
+      p.nickname.toLowerCase() === query ||
+      p.friendName.toLowerCase().includes(query)
     );
 
-    if (matchedPerson) {
+    if (matchedEntry) {
+      const matchedPerson = matchedEntry[1];
       setActiveData(matchedPerson);
       const url = new URL(window.location.href);
       url.searchParams.set('person', matchedPerson.id);
@@ -97,7 +102,7 @@ export default function App() {
 
       {/* 1. Opening Mystery Screen */}
       <AnimatePresence>
-        {!isStarted && <IntroScreen onEnter={handleStart} />}
+        {!isStarted && <IntroScreen data={activeData} onEnter={handleStart} />}
       </AnimatePresence>
 
       {/* Main Experience Journey */}

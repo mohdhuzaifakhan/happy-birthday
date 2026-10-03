@@ -67,12 +67,11 @@ export default function FunFacts({ data }) {
               <motion.div
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="w-full h-full relative transform-style-3d glass-card rounded-2xl border border-white/10 shadow-xl group-hover:border-pink-500/40"
+                className="w-full h-full relative transform-style-3d rounded-2xl shadow-xl border border-white/10 group-hover:border-pink-500/40"
               >
+                {/* Front Side */}
                 <div
-                  className={`absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center space-y-3 backface-hidden transition-opacity ${
-                    isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                  }`}
+                  className="absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center space-y-3 glass-card backface-hidden"
                 >
                   <div className="w-10 h-10 rounded-full glass-btn flex items-center justify-center text-pink-300">
                     <Sparkles className="w-5 h-5 animate-pulse" />
@@ -85,15 +84,14 @@ export default function FunFacts({ data }) {
                   </span>
                 </div>
 
+                {/* Back Side */}
                 <div
-                  className={`absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-purple-900/60 to-pink-900/60 backdrop-blur-xl border border-pink-400/40 shadow-2xl transform rotate-y-180 backface-hidden transition-opacity ${
-                    isFlipped ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                  }`}
+                  className="absolute inset-0 w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-[#1E0F38] via-[#2A0E44] to-[#3B0A3A] backdrop-blur-xl border border-pink-400/50 shadow-2xl rotate-y-180 backface-hidden"
                 >
-                  <p className="text-base sm:text-lg font-sans-custom font-medium text-white leading-relaxed">
+                  <p className="text-base sm:text-lg font-sans-custom font-medium text-pink-100 leading-relaxed drop-shadow-sm">
                     "{fact.back}"
                   </p>
-                  <span className="text-[11px] font-sans-custom text-pink-200 mt-3 opacity-80">
+                  <span className="text-[11px] font-sans-custom text-pink-300 mt-3 opacity-80">
                     ✨ Tap again to flip back
                   </span>
                 </div>

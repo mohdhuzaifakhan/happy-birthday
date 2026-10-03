@@ -8,203 +8,201 @@ export const peopleData = {
     bgMusicUrl: "",
 
     personalMessage: {
-      title: "There is something I want you to know...",
+      title: "Ek baat hai jo main dil se kehna chahta hu...",
       paragraphs: [
-        "Some people come into our lives and become memories.",
-        "And then there are those rare people who become a part of our story.",
-        "You are one of those people, Bushra.",
-        "Thank you for all the laughs, the random conversations, the crazy moments, the support, and all those little memories that somehow became some of my favorite ones."
+        "Hum college mein mile, saath mein time spent kiya aur dekhte hi dekhte bohot acche dost ban gaye...",
+        "Zindagi mein bohot kam aise rare log aate hain jo dil mein jagah banate hain aur humesha saath rehte hain. Tum mere liye wahi ek sabse special insaan ho, Bushra.",
+        "InshaAllah Allah tumhein lambi umar, acchi sehat aur dher saari khushiyan ata kare.",
+        "Thank you so much for all those endless laughs, crazy moments, and random chats... Pata hi nahi chala kab yeh choti choti yaadein meri sabse favorite memories ban gayi."
       ]
     },
 
     memories: [
       {
         id: 1,
-        title: "Core Memory Unlocked",
-        date: "2023",
-        caption: "That random day that became a core memory.",
-        fullDescription: "Looking back at this moment, it reminds me how effortless it is to create unforgettable times when you're around.",
-        tag: "Unforgettable",
-        image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=800"
+        title: "First Outing & Sports Complex",
+        date: "College Days",
+        caption: "College mein pehli baar jab hum sab Sports Complex gaye the...",
+        fullDescription: "Yeh college ka pehla aisa din tha jab hum sabne ek saath time spend kiya tha—Afroz, Bushra, Muzammil aur main! Sports complex ki wo pehli trip aur wahan ki baatein aaj bhi humari sabse khoobsurat aur special memories mein se ek hain.",
+        tag: "First Meeting ✨",
+        image: "/images/sports_complex.jpg"
       },
       {
         id: 2,
-        title: "Endless Laughter",
-        date: "2023",
-        caption: "Somehow, we always end up laughing.",
-        fullDescription: "Even on the quietest or hardest days, a simple chat with you turns everything into joy and endless smiles.",
-        tag: "Pure Joy",
-        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800"
+        title: "Farah's Birthday Celebration 🎂",
+        date: "Birthday Memories",
+        caption: "Farah ki birthday celebration aur dher saari masti...",
+        fullDescription: "Farah ke birthday ke din hum sabne milkar bohot zyada enjoy kiya tha! Ek dusre ke saath mazaak karna, photos khichwana aur itna hasna... yeh din hum sabke liye ek priceless memory ban gaya.",
+        tag: "Celebration & Fun 🎉",
+        image: "/images/farah_birthday.jpg"
       },
       {
         id: 3,
-        title: "Timeless Moments",
-        date: "2024",
-        caption: "One of those moments I wish I could replay.",
-        fullDescription: "If time travel were real, I'd pause right at this moment just to experience the warmth and happiness all over again.",
-        tag: "Golden Hour",
-        image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800"
+        title: "Akib's Birthday & Sawaya House",
+        date: "Birthday Outing",
+        caption: "Akib ki birthday par Sawaya House ki Treat...",
+        fullDescription: "Akib ke birthday par hum sab Sawaya House gaye the jahan tasty khana, bohot saari baatein aur endless masti hui! Aise moments hi humari dosti ko aur strong aur memorable banate hain.",
+        tag: "Treat & Good Times 🥳",
+        image: "/images/akib_birthday.jpg"
       },
-      {
-        id: 4,
-        title: "Late Night Conversations",
-        date: "2024",
-        caption: "Deep conversations and endless random topics.",
-        fullDescription: "From talking about life goals to making ridiculous jokes at midnight, these are the moments that truly define us.",
-        tag: "Best Friend Energy",
-        image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800"
-      }
+      // {
+      //   id: 4,
+      //   title: "Late Night Conversations",
+      //   date: "2024",
+      //   caption: "Deep conversations and endless random topics.",
+      //   fullDescription: "From talking about life goals to making ridiculous jokes at midnight, these are the moments that truly define us.",
+      //   tag: "Best Friend Energy",
+      //   image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800"
+      // }
     ],
 
     funFacts: [
       {
         id: 1,
-        front: "Secret #1 🤫",
-        back: "You're one of the few people I can talk to for hours without getting bored."
+        front: "Secret Code 🤫",
+        back: "'Gadhee' 😂❤️"
       },
       {
         id: 2,
         front: "Secret #2 ✨",
-        back: "You somehow make ordinary days memorable."
+        back: "Tum akeli aisi dost ho jisse bina bore hue ghanto baatein kar sakta hu!"
       },
       {
         id: 3,
         front: "Secret #3 😂",
-        back: "Some of my funniest memories include you."
+        back: "Meri life ke sabse funny moments aur sabse zyada hasne waali memories tumhare saath hi bani hain!"
       },
       {
         id: 4,
         front: "Secret #4 ❤️",
-        back: "I probably don't say it enough, but I genuinely appreciate you."
+        back: "Chahe main roz na bolu, par tumhare jaisa saccha aur special dost milna meri life ki sabse badi khushnasibi hai."
       }
     ],
 
     finalMessage: {
-      title: "For You ❤️",
-      salutation: "Happy Birthday, Bushra.",
+      title: "Dil Se Tumhare Liye ❤️",
+      salutation: "Happy Birthday, Bushra 🎉",
       body: [
-        "I hope this year brings you countless reasons to smile, people who genuinely appreciate you, opportunities that make you excited for the future, and memories that you'll look back on years from now.",
-        "No matter where life takes us, I hope you always remember that there is someone out here who is genuinely grateful that you exist.",
-        "Keep being you.",
-        "Keep laughing.",
-        "Keep dreaming.",
-        "And most importantly...",
-        "never forget how special you are."
+        "Bas yahi dua hai ki yeh naya saal tumhari life mein dher saari khushiyan, acchi sehat aur success lekar aaye.",
+        "Zindagi mein chahe hum kitne bhi aage nikal jayein, humesha yaad rakhna ki ek dost humesha tumhari khushi ke liye dua karta hai.",
+        "Humesha aise hi muskuraati raho.",
+        "Humesha khush raho aur apne sapne poore karti raho.",
+        "Aur sabse zaroori baat...",
+        "kabhi mat bhoolna ki tum mere liye kitni special aur priceless ho."
       ],
       closing: "Happy Birthday, Bushra Azmi Khan ❤️"
     },
 
     ending: {
-      subtitle1: "This little website was made just for you.",
-      subtitle2: "Because ordinary birthday wishes weren't enough.",
-      fromText: "❤️ From Your Best Friend"
+      subtitle1: "Yeh choti si website sirf tumhare liye banayi hai, Bushra.",
+      subtitle2: "Kyunki normal birthday wishes tumhare liye bilkul kaafi nahi the.",
+      fromText: "❤️ Tumhara Sabse Accha Dost"
     }
   },
 
   afifah: {
     id: "afifah",
-    friendName: "Afifah Kamal",
+    friendName: "Afifah",
     nickname: "Afifah",
     yourName: "Your Best Friend",
     birthdayDate: "8th October",
     bgMusicUrl: "",
 
     personalMessage: {
-      title: "There is something I want you to know...",
+      title: "Ek baat hai jo main dil se kehna chahta hu...",
       paragraphs: [
-        "Some people come into our lives as casual acquaintances.",
-        "And then there are those rare, incredible soulmates who become a central part of our life's story.",
-        "You are one of those truly priceless people, Afifah.",
-        "Thank you for being my constant, for every shared laugh, every unspoken understanding, every crazy memory, and for being the truest best friend anyone could ever ask for."
+        "Hum college mein mile, saath mein time spent kiya aur dekhte hi dekhte bohot acche dost ban gaye...",
+        "Zindagi mein bohot kam aise rare log aate hain jo life mein aate hain aur humesha ke liye ruk jaate hain. Tum mere liye wahi ek sabse special insaan ho, Afifah.",
+        "InshaAllah Allah tumhein lambi umar, acchi sehat aur dher saari khushiyan ata kare.",
+        "Thank you so much for all those endless laughs, crazy moments, and random chats... Pata hi nahi chala kab yeh choti choti yaadein meri sabse favorite memories ban gayi."
       ]
     },
 
     memories: [
       {
         id: 1,
-        title: "Golden Memories",
-        date: "2023",
-        caption: "That unforgettable day with you that became a core memory.",
-        fullDescription: "Looking back at this moment, it reminds me how effortless it is to create pure magic whenever we hang out.",
-        tag: "Core Memory",
-        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800"
+        title: "First Outing & Sports Complex",
+        date: "College Days",
+        caption: "College mein pehli baar jab hum sab Sports Complex gaye the...",
+        fullDescription: "Yeh college ka pehla aisa din tha jab hum sabne ek saath time spend kiya tha—Afroz, Bushra, Muzammil aur main! Sports complex ki wo pehli trip aur wahan ki baatein aaj bhi humari sabse khoobsurat aur special memories mein se ek hain.",
+        tag: "First Outing ✨",
+        image: "/images/sports_complex.jpg"
       },
       {
         id: 2,
-        title: "Unstoppable Laughter",
-        date: "2023",
-        caption: "Somehow, every single conversation with you turns into pure joy.",
-        fullDescription: "Even on the quietest or toughest days, your sense of humor and warmth can brighten up everything in an instant.",
-        tag: "Pure Happiness",
-        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800"
+        title: "Farah's Birthday Celebration 🎂",
+        date: "Birthday Memories",
+        caption: "Farah ki birthday celebration aur dher saari masti...",
+        fullDescription: "Farah ke birthday ke din hum sabne milkar bohot zyada enjoy kiya tha! Ek dusre ke saath mazaak karna, photos khichwana aur itna hasna... yeh din hum sabke liye ek priceless memory ban gaya.",
+        tag: "Celebration & Fun 🎉",
+        image: "/images/farah_birthday.jpg"
       },
       {
         id: 3,
-        title: "Timeless Moments",
-        date: "2024",
-        caption: "One of those precious moments I wish I could replay forever.",
-        fullDescription: "If I could pause time, I'd freeze this exact moment just to soak in the warmth and laughter all over again.",
-        tag: "Precious",
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800"
+        title: "Akib's Birthday & Sawaya House",
+        date: "Birthday Outing",
+        caption: "Akib ki birthday par Sawaya House ki Treat...",
+        fullDescription: "Akib ke birthday par hum sab Sawaya House gaye the jahan tasty khana, bohot saari baatein aur endless masti hui! Aise moments hi humari dosti ko aur strong aur memorable banate hain.",
+        tag: "Treat & Good Times 🥳",
+        image: "/images/akib_birthday.jpg"
       },
-      {
-        id: 4,
-        title: "Best Friend Energy",
-        date: "2024",
-        caption: "Deep midnight talks and endless random topics.",
-        fullDescription: "From sharing our biggest dreams to making silly jokes, these are the moments I treasure the most.",
-        tag: "Besties Forever",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
-      }
+      // {
+      //   id: 4,
+      //   title: "Best Friend Energy",
+      //   date: "2024",
+      //   caption: "Deep midnight talks and endless random topics.",
+      //   fullDescription: "From sharing our biggest dreams to making silly jokes, these are the moments I treasure the most.",
+      //   tag: "Besties Forever",
+      //   image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
+      // }
     ],
 
     funFacts: [
       {
         id: 1,
-        front: "Secret #1 🤫",
-        back: "You're the person I can talk to for hours without ever running out of things to say."
+        front: "Secret Code 🤫",
+        back: "'Gadhee'😂❤️"
       },
       {
         id: 2,
         front: "Secret #2 ✨",
-        back: "Your presence has a magical way of making even ordinary days memorable."
+        back: "Tum akeli aisi dost ho jisse bina bore hue ghanto baatein kar sakta hu!"
       },
       {
         id: 3,
         front: "Secret #3 😂",
-        back: "Some of the absolute funniest chapters of my life feature you."
+        back: "Meri life ke sabse funny moments aur sabse zyada hasne waali memories tumhare saath hi bani hain!"
       },
       {
         id: 4,
         front: "Secret #4 ❤️",
-        back: "I might not say it every day, but I am endlessly grateful to have you as my best friend."
+        back: "Chahe main roz na bolu, par tumhare jaisa saccha aur special dost milna meri life ki sabse badi khushnasibi hai."
       }
     ],
 
     finalMessage: {
-      title: "For You ❤️",
-      salutation: "Happy Birthday, Afifah.",
+      title: "Dil Se Tumhare Liye ❤️",
+      salutation: "Happy Birthday, Afifah 🎉",
       body: [
-        "I hope this year brings you infinite reasons to smile, people who cherish you as much as you deserve, and beautiful opportunities that light up your future.",
-        "No matter where life takes us or how far we go, I hope you always remember that you have a best friend who is genuinely grateful that you exist.",
-        "Keep being your wonderful self.",
-        "Keep shining brightly.",
-        "Keep dreaming big.",
-        "And most importantly...",
-        "never forget how special and irreplaceable you are."
+        "Bas yahi dua hai ki yeh naya saal tumhari life mein dher saari khushiyan, acchi sehat aur success lekar aaye.",
+        "Zindagi mein chahe hum kitne bhi aage nikal jayein, humesha yaad rakhna ki ek dost humesha tumhari khushi ke liye dua karta hai.",
+        "Humesha aise hi muskuraati raho.",
+        "Humesha khush raho aur apne sapne poore karti raho.",
+        "Aur sabse zaroori baat...",
+        "kabhi mat bhoolna ki tum mere liye kitni special aur priceless ho."
       ],
-      closing: "Happy Birthday, Afifah Kamal ❤️"
+      closing: "Happy Birthday, Afifah ❤️"
     },
 
     ending: {
-      subtitle1: "This website was crafted specially for you, Afifah.",
-      subtitle2: "Because ordinary birthday wishes weren't enough for someone as special as you.",
-      fromText: "❤️ From Your Best Friend"
+      subtitle1: "Yeh choti si website sirf tumhare liye banayi hai, Afifah.",
+      subtitle2: "Kyunki normal birthday wishes tumhare liye bilkul kaafi nahi the.",
+      fromText: "❤️ Tumhara Sabse Accha Dost"
     }
   }
 };
 
-// Helper function to resolve person strictly by their configured 'id' property
+// Helper function to resolve person by their configured key, id, nickname, or friendName
 export function getActiveBirthdayData() {
   if (typeof window === 'undefined') return null;
 
@@ -212,15 +210,18 @@ export function getActiveBirthdayData() {
   const personQuery = urlParams.get('person') || urlParams.get('name') || urlParams.get('id') || urlParams.get('to');
 
   if (personQuery) {
-    const query = personQuery.trim();
+    const query = personQuery.trim().toLowerCase();
 
-    // STRICT MATCH ONLY against person.id
-    const matchedPerson = Object.values(peopleData).find(
-      (person) => person.id === query || person.id.toLowerCase() === query.toLowerCase()
+    // Match against key, id, nickname, or friendName
+    const matchedEntry = Object.entries(peopleData).find(([key, person]) =>
+      key.toLowerCase() === query ||
+      person.id.toLowerCase() === query ||
+      person.nickname.toLowerCase() === query ||
+      person.friendName.toLowerCase().includes(query)
     );
 
-    if (matchedPerson) {
-      return matchedPerson;
+    if (matchedEntry) {
+      return matchedEntry[1];
     }
   }
 
